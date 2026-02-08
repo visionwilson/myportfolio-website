@@ -10,13 +10,26 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: transparent;
-    position: sticky;
+    background-color: rgba(18, 18, 18, 0.95); /* Changed from transparent */
+    backdrop-filter: blur(10px);
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding-left: 10%;
     padding-right: 10%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+.header.visible {
+    transform: translateY(0);
 }
 
 .nav-container {
@@ -49,14 +62,18 @@ body {
     flex-direction: column;
     cursor: pointer;
     padding: 0.5rem;
+    background-color: transparent;
+    border: none;
+    z-index: 1002;
 }
 
 .hamburger span {
-    width: 25px;
+    width: 30px; /* Made slightly bigger */
     height: 3px;
     background-color: #fff;
-    margin: 3px 0;
+    margin: 4px 0;
     transition: 0.3s;
+    display: block;
 }
 
 html {
@@ -70,7 +87,7 @@ html {
     padding-right: 10%;
     gap: 50px;
     align-items: center;
-    min-height: 80vh;
+    min-height: 80vh;margin-top: 60px;
 }
 
 .hero-colum1 {
@@ -533,9 +550,15 @@ textarea.contact-inputs {
 
 /* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
+    .header {
+        padding: 1rem;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
     .hamburger {
-        display: flex;
-        z-index: 1001;
+        display: flex; /* This shows the hamburger on mobile */
+        z-index: 1002;
     }
 
     .nav-container {
@@ -551,6 +574,7 @@ textarea.contact-inputs {
         gap: 2rem;
         transition: right 0.3s ease;
         box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+        padding: 20px;
     }
 
     .menu-toggle:checked ~ .nav-container {
@@ -582,6 +606,7 @@ textarea.contact-inputs {
     .hero {
         padding: 0 15px;
         gap: 20px;
+        margin-top: 80px; /* Add space for fixed header */
     }
 
     .hero-colum2 img {
