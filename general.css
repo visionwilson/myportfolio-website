@@ -10,7 +10,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(18, 18, 18, 0.95); /* Changed from transparent */
+    background-color: rgba(18, 18, 18, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -367,9 +367,24 @@ textarea.contact-inputs {
 .section-5 {
     margin-top: 100px;
     padding-top: 50px;
+    padding-bottom: 30px;
     background-color: #1b1b1b;
     padding-left: 5%;
     padding-right: 5%;
+}
+
+.section-5 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.section-5 a p {
+    margin: 0;
+    transition: color 0.3s;
+}
+
+.section-5 a:hover p {
+    color: #007bff;
 }
 
 .fotter-menu {
@@ -381,7 +396,7 @@ textarea.contact-inputs {
 }
 
 .fotter-icons {
-    margin-top: 30px;
+    margin-top: 60px;
     display: grid;
     justify-items: center;
     align-items: center;
